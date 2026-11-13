@@ -1,5 +1,67 @@
 # Unity Assist Tools 更新履歴
-
+更新履歴
+0.1.0-preview.6（現時点の最終版）
+変更内容
+- エディター画面から開発時のみ必要な説明文を削除。
+- Unityメニュー名とウィンドウ名を「Texture Color Replacer」に統一。
+- 利用者向けの説明を整理し、内部実装に関する表示を削除。
+- 変換先の色指定をHEXコード入力からUnity標準のカラーピッカーに変更。色相リングと色選択フィールドを使って視覚的に指定できる。
+- 単色変換では変換先を1色、2点方式では変換先を2色指定できる。
+- 色変換エンジン、画像読み込み、色判定、変換、PNG出力の内部処理は変更していない。
+動作確認
+- 利用者によるVRChatアバター2体の衣装テクスチャでの動作確認を実施。衣装の色変換では異常がなかったとの報告を確認。
+- アバターの身体・肌色の変換は、衣装テクスチャと比べて苦手であることを確認。現時点での既知の制限として扱う。
+- Unity Test Runnerに含まれるNUnitテスト8件は作成済みだが、実行結果は未確認。
+参考にした既存ツール・技術
+既存製品の公開仕様、マニュアル、変更履歴、公開ソースのライセンスを調査し、次の考え方を設計上の参考にした。
+- Iroca：素材の明暗に応じた色域推定、影・ハイライトの扱い、境界の色残りを抑える考え方。
+- Color-Changer / Color-Changer for Unity：変更前後の色の差分を利用する変換、RuntimeとEditorの分離、プレビューと出力の考え方。
+- Texture Color Adjuster / TexColorAdjuster：色分布の比較、明度に応じた色合わせ、プレビューと保存結果を一致させる考え方。
+- Color Matcher / Miyabix Tool：Unityのインポート後の画像だけに依存せず、元画像を読み込む考え方。
+- Click Recolor / TexStack / Avenix Studio：色だけでは区別が難しい領域に対するUV・メッシュ情報の活用。
+- Photoshop / Krita / F Texture Tools / Color Studio 10 / ReColor Pro：色域選択、類似色選択、選択処理と色変換処理を分ける設計。
+上記は公開された仕様・機能・技術資料を調査したものであり、各製品の品質や精度を同一条件で比較したベンチマークではない。
+ライセンス・第三者コンテンツの確認
+- preview.6の配布物を確認した範囲では、調査対象製品のソースコード、DLL、シェーダー、画像、モデル等を同梱していない。
+- IrocaはPolyForm Shield License 1.0.0で提供され、競合利用に関する制限があるため、ソースコード・実装コード・アセット・派生コードをコピーまたは移植していない。公開されている製品説明・機能の概要のみを独立実装の参考とした。
+- MITライセンスのプロジェクト（Color-Changer、Color-Changer for Unity、Texture Color Adjuster等）は参考対象として調査したが、preview.6にはそれらのソースコードを取り込んでいない。
+- BOOTHおよびUnity Asset Storeの製品は、コード再利用の許可が明確でないものや再配布制限があるものについて、公開仕様のみを参考とした。ソースコード、アセット、シェーダー、説明書等を抽出・再配布していない。
+- 将来、第三者コードを採用する場合は、対象バージョンのLICENSE・NOTICE・依存ライブラリ・配布条件を事前に確認し、必要な著作権表示とライセンス全文を同梱して、出典と採用箇所を記録する。
+- 本記録は確認時点の配布物と公開ライセンス情報に基づく記録であり、第三者権利者による法的な保証を意味しない。
+既知の制限
+- 同じ色・同じ色分布を持つ別パーツが同一画像内にある場合、色情報だけでは完全に区別できない。
+- 非常に暗く彩度の低い有彩色と黒色の境界は、元画像だけでは曖昧になる場合がある。
+- 身体・肌色テクスチャの変換は、衣装テクスチャほど安定していない。
+- 主にsRGBのBaseColorテクスチャを対象とする。Normal、Mask、MetallicなどのLinearデータには使用しない。
+- PNG/JPG/JPEGは元ファイルから直接読み込み、TGAは対応する非圧縮/RLE形式を読み込む。非対応形式はUnityのインポート済みテクスチャを使う場合がある。
+現在の位置づけ
+- v0.1.0-preview.6を現時点での最終版とする。
+- 現時点では追加の機能変更、UI変更、内部エンジン変更を行わない。
+- 衣装テクスチャ向けの操作性と変換結果を維持する。
+参考リンク
+- Iroca：https://github.com/yukkuri-aoba/Iroca
+- Iroca 変更履歴：https://github.com/yukkuri-aoba/Iroca/blob/main/CHANGELOG.md
+- Color-Changer：https://github.com/puk06/Color-Changer
+- Color-Changer for Unity：https://github.com/puk06/Color-Changer-For-Unity
+- Texture Color Adjuster：https://github.com/nekoare/texture-color-adjuster
+- TexStackEditor：https://github.com/puk06/TexStackEditor
+- TexColorAdjuster：https://booth.pm/ja/items/7182575
+- Color Matcher：https://booth.pm/ja/items/8963911
+- Click Recolor：https://booth.pm/ja/items/9065378
+- Miyabix Tool：https://booth.pm/ja/items/9132637
+- Avenix Studio：https://booth.pm/ja/items/9036560
+- Kalon Texture Color Changer：https://booth.pm/ja/items/7912605
+0.1.0-preview.5
+- 変換先の色指定をHEXコード入力からUnity標準のカラーピッカーに変更。
+- 単色方式と2点方式の変換先色を通常のLDRカラーとして扱い、HDRおよびアルファの指定を無効化。
+- Runtimeの色認識、色変換アルゴリズム、元画像の読み込み、出力処理は変更していない。
+0.1.0-preview.4
+- MaterialColorProfile に不足していた Lerp(float, float, float) を追加し、コンパイルエラーの原因を修正。
+- パッケージバージョンとビルド報告書を更新。
+0.1.0-preview.3
+- 検証用画面にsRGB HEX形式で変換先色を指定する機能を追加。
+- 元画像が`Packages/`配下にある場合でも、生成したPNGを`Assets/`配下に保存できるように変更。
+- 参考技術とライセンスの記録を拡充。
 ## Release 1.4.2 Preview
 
 ### 概要
