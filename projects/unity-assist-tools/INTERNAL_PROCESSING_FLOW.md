@@ -4,15 +4,16 @@
 本ツールは、Unity Editor上の操作を担当する Editor層 と、ピクセル単位の色解析・変換を担当する Runtime層 に分離しています。
 UnityAssistTextureColorEngine/
 ├── Editor/
-│   ├── TextureColorEngineSandboxWindow.cs  # Unity Editor UI・操作制御
-│   └── TextureSourceReader.cs              # 元画像の読み込み・PNG出力
+│   ├── TextureColorEngineSandboxWindow.cs
+│   └── TextureSourceReader.cs
 ├── Runtime/
-│   ├── ColorTypes.cs                       # 色・ピクセル・結果データ型
-│   ├── ColorMath.cs                        # sRGB / Linear RGB / OKLab / OKLCH変換
-│   ├── MaterialColorProfile.cs              # テクスチャ内の色分布解析
-│   └── TextureColorEngine.cs                # 単色・2点変換の処理本体
-└── Tests/Editor/
-    └── TextureColorEngineTests.cs           # 色変換コアのEditorテスト
+│   ├── ColorTypes.cs
+│   ├── ColorMath.cs
+│   ├── MaterialColorProfile.cs
+│   └── TextureColorEngine.cs
+└── Tests/
+    └── Editor/
+        └── TextureColorEngineTests.cs
 TextureColorEngineSandboxWindow	Texture2Dの指定、変換方式の選択、元画像上のスポイト操作、変換先色の指定、プレビュー表示、保存操作を担当します。
 TextureSourceReader	元ファイルのデコード、TextureImporter設定の取得、変換結果のPNG出力、出力画像へのImporter設定の適用を担当します。
 TexturePixels / Rgba32	Unity Editor UIから独立した、幅・高さ・RGBA8画素配列を保持します。画素配列はフラットな行優先配列です。
