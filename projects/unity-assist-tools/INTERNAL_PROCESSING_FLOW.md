@@ -13,7 +13,6 @@ UnityAssistTextureColorEngine/
 │   └── TextureColorEngine.cs                # 単色・2点変換の処理本体
 └── Tests/Editor/
     └── TextureColorEngineTests.cs           # 色変換コアのEditorテスト
-層・クラス	役割
 TextureColorEngineSandboxWindow	Texture2Dの指定、変換方式の選択、元画像上のスポイト操作、変換先色の指定、プレビュー表示、保存操作を担当します。
 TextureSourceReader	元ファイルのデコード、TextureImporter設定の取得、変換結果のPNG出力、出力画像へのImporter設定の適用を担当します。
 TexturePixels / Rgba32	Unity Editor UIから独立した、幅・高さ・RGBA8画素配列を保持します。画素配列はフラットな行優先配列です。
