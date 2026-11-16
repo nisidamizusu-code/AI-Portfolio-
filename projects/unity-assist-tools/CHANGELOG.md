@@ -6,10 +6,10 @@
 
 # Unity Assist Texture Color Engine 更新履歴
 
-## 0.1.0-preview.8
+## 0.1.0-preview.8（現時点の最終版）
 軽微な不具合の修正
 
-## 0.1.0-preview.6（現時点の最終版）
+## 0.1.0-preview.6
 
 ### 変更内容
 
