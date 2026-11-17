@@ -6,7 +6,11 @@
 
 # Unity Assist Texture Color Engine 更新履歴
 
-## 0.1.0-preview.11(最新版)
+## 0.1.0-preview.14
+unityパッケージに変換してインポートをしやすくしました。
+機能の拡張としてグラデーションにも対応しました。
+
+## 0.1.0-preview.11
 グラデーションへの動作安定
 
 ## 0.1.0-preview.8
