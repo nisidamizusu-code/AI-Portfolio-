@@ -6,6 +6,9 @@
 
 # Unity Assist Texture Color Engine 更新履歴
 
+## 0.1.0-preview.32
+不具合の修正
+
 ## 0.1.0-preview.31
 履歴機能実装
 明るさ、彩度調整機能実装
